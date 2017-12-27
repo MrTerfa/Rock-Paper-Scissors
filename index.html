@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>TicTac Toe</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay(){
+                let randomValue = (Math.random() * 10);
+                if (randomValue < 3){
+                    return "scissors";
+                }
+                else if(randomValue > 3 && randomValue <= 6 ){
+                    return "rock";
+                }
+                else{
+                    return "paper";
+                }
+            }
+
+            let playerSelection = prompt("Supply value");
+            let computerSelection = computerPlay();
+
+            function playARound(playerSelection,computerSelection){
+                if(playerSelection == computerSelection){
+                    return "Tie";
+                }
+                else if(playerSelection == "rock"){
+                    if(computerSelection == "scissors"){
+                        return "rock wins";
+                    }
+                    else{
+                        return "paper wins";
+                    }
+
+                }
+                else if(playerSelection == "paper"){
+                    if(computerSelection == "rock"){
+                        return "paper wins";
+                    }
+                    else{
+                        return "Scissors wins";
+                    }
+                }
+                else if(playerSelection == "scissors"){
+                    if(computerSelection == "paper"){
+                        return "Scissor wins";
+                    }
+                    else{
+                        return "rock wins";
+                    }
+                }
+            }
+            console.log(playARound(playerSelection,computerSelection));
+        </script>
+    </body>
+</html>
