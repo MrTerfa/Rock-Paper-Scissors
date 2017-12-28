@@ -16,41 +16,56 @@
                     return "paper";
                 }
             }
+            function game(){
+                let computerScore = 0;
+                let playerScore = 0;
 
-            let playerSelection = prompt("Supply value");
-            let computerSelection = computerPlay();
+                for(let counter = 1; counter <= 5; counter++){
+                    let playerSelection = prompt("Supply value").toLowerCase();
+                    let computerSelection = computerPlay();
 
-            function playARound(playerSelection,computerSelection){
-                if(playerSelection == computerSelection){
-                    return "Tie";
-                }
-                else if(playerSelection == "rock"){
-                    if(computerSelection == "scissors"){
-                        return "rock wins";
-                    }
-                    else{
-                        return "paper wins";
-                    }
+                    function playARound(playerSelection,computerSelection){
+                        if(playerSelection == computerSelection){
+                            return "Tie";
+                        }
+                        else if(playerSelection == "rock"){
+                            if(computerSelection == "scissors"){
+                                playerScore += 1;
+                                return "rock wins";
+                            }
+                            else{
+                                computerScore += 1;
+                                return "paper wins";
+                            }
 
+                        }
+                        else if(playerSelection == "paper"){
+                            if(computerSelection == "rock"){
+                                playerScore += 1;
+                                return "paper wins";
+                            }
+                            else{
+                                computerScore += 1;
+                                return "Scissors wins";
+                            }
+                        }
+                        else if(playerSelection == "scissors"){
+                            if(computerSelection == "paper"){
+                                playerScore += 1;
+                                return "Scissor wins";
+                            }
+                            else{
+                                computerScore += 1;
+                                return "rock wins";
+                            }
+                        }
+                    } 
+                    console.log(playARound(playerSelection,computerSelection));
                 }
-                else if(playerSelection == "paper"){
-                    if(computerSelection == "rock"){
-                        return "paper wins";
-                    }
-                    else{
-                        return "Scissors wins";
-                    }
-                }
-                else if(playerSelection == "scissors"){
-                    if(computerSelection == "paper"){
-                        return "Scissor wins";
-                    }
-                    else{
-                        return "rock wins";
-                    }
-                }
+                console.log(`Player has a score of ${playerScore} and Computer has a score of ${computerScore}`);                
             }
-            console.log(playARound(playerSelection,computerSelection));
+            console.log(game());
+             
         </script>
     </body>
 </html>
